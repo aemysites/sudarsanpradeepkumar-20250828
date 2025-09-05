@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,119 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion34 {
+  background: #f7f7f3;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Remove borders, use only bottom divider line */
+.accordion.accordion34 details {
+  border: none;
+  margin: 0;
+  background: transparent;
+  border-bottom: 1px solid #e5e5e0;
+  box-sizing: border-box;
+}
+
+/* Remove divider from last accordion row */
+.accordion.accordion34 details:last-child {
+  border-bottom: none;
+}
+
+/* FAQ row: flex for side-by-side layout, improved padding and row height */
+.accordion.accordion34 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 12px;
+  padding-right: 24px;
+  min-height: 54px;
+  font-size: 15px;
+  color: #3e3e3e;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: none;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Remove default browser marker (arrow) */
+.accordion.accordion34 summary::-webkit-details-marker,
+.accordion.accordion34 summary::marker {
+  display: none;
+}
+
+/* FAQ question text: flex for vertical centering, no extra margin */
+.accordion.accordion34 summary p {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
+/* Chevron icon: smaller, lighter, thinner stroke and perfectly centered */
+.accordion.accordion34 summary::after {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+  background: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%233e3e3e" stroke-width="1" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M3 4l3 4 3-4" stroke-linecap="round" stroke-linejoin="round"/></svg>') center center no-repeat;
+  vertical-align: middle;
+  content: "";
+  flex-shrink: 0;
+}
+
+/* Rotate chevron arrow on open */
+.accordion.accordion34 details[open] summary::after {
+  transform: rotate(180deg);
+  transition: transform 0.2s;
+}
+
+/* Accordion body: padding and divider */
+.accordion.accordion34 .accordion-item-body {
+  padding: 16px 12px;
+  color: #3e3e3e;
+  font-size: 15px;
+  background: #f7f7f3;
+  border-top: 1px solid #e5e5e0;
+  box-shadow: none;
+}
+
+/* Hide border-top on body if not open for clean look */
+.accordion.accordion34 details:not([open]) .accordion-item-body {
+  border-top: none;
+  padding: 0 12px;
+}
+
+/* Responsive adjustments: minimize padding and chevron size on small screens */
+@media (width <=600px) {
+  .accordion.accordion34 summary,
+  .accordion.accordion34 .accordion-item-body {
+    padding-left: 6px;
+    padding-right: 12px;
+    font-size: 14px;
+  }
+
+  .accordion.accordion34 summary::after {
+    width: 10px;
+    height: 10px;
+    margin-left: 6px;
+    background-size: 10px 10px;
+  }
 }
