@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -170,4 +171,105 @@
 .cards.cards33 .cards-card-body p:last-child:hover {
   color: #000;
   text-decoration: none;
+}
+
+
+.cards.cards19 {
+  background: none;
+  padding: 0;
+}
+
+/* Fine-tuned grid: slightly reduced row/column gaps for pixel-perfect alignment */
+.cards.cards19 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px 28px;
+  justify-content: center;
+  align-items: start;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  list-style: none;
+  padding: 0;
+  background: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (width <= 950px) {
+  .cards.cards19 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 460px;
+    gap: 36px 18px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards19 > ul {
+    grid-template-columns: 1fr;
+    max-width: 95vw;
+    gap: 18px 0;
+  }
+}
+
+/* Remove card borders and backgrounds, ensure horizontal layout, top alignment */
+.cards.cards19 > ul > li {
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Icon alignment and spacing */
+.cards.cards19 .cards-card-image {
+  flex: 0 0 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-right: 8px;
+  line-height: 0;
+  padding: 0;
+}
+
+.cards.cards19 .cards-card-image img,
+.cards.cards19 .cards-card-image picture {
+  width: 24px;
+  height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+.cards.cards19 .cards-card-body {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  width: auto;
+}
+
+/* Text styling and wrapping, no forced alignment/height */
+.cards.cards19 .cards-card-body p {
+  color: #222;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+}
+
+/* Responsive text for very small screens */
+@media (width <= 400px) {
+  .cards.cards19 .cards-card-body p {
+    font-size: 11px;
+    line-height: 14px;
+  }
 }
