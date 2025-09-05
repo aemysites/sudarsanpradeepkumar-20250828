@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -38,7 +39,6 @@
   padding: 0;
 }
 
-/* Achieve a wider and shorter block for more white space above/below images */
 .columns.columns29 > div {
   display: flex;
   flex-direction: row;
@@ -52,7 +52,6 @@
   box-sizing: border-box;
 }
 
-/* Image columns fill space, crop overflow, and have rounded corners */
 .columns.columns29 .columns-img-col {
   flex: 1 1 0;
   display: flex;
@@ -64,7 +63,6 @@
   height: 100%;
 }
 
-/* Ensure child picture/img fill and crop correctly */
 .columns.columns29 .columns-img-col picture,
 .columns.columns29 .columns-img-col img {
   width: 100%;
@@ -79,7 +77,6 @@
   padding: 0;
 }
 
-/* Responsive stacking for mobile */
 @media (width <= 800px) {
   .columns.columns29 > div {
     flex-direction: column;
@@ -87,5 +84,105 @@
     aspect-ratio: unset;
     min-height: 300px;
     max-width: 100%;
+  }
+}
+
+
+.columns.columns3 > div {
+  /* Vertically center both columns, make block less wide and reduce gap */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2.7vw;
+  padding: 6vw 0 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 340px;
+  box-sizing: border-box;
+}
+
+/* Left column: keep heading/description together and vertically centered */
+.columns.columns3 > div > div:first-child {
+  flex: 1 1 0;
+  min-width: 320px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Right column: vertically center button group, ensure consistent sizing */
+.columns.columns3 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  max-width: 240px;
+}
+
+/* Stack and space the buttons vertically */
+.columns.columns3 > div > div:last-child p {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+  margin: 0;
+}
+
+/* Button styles for links */
+.columns.columns3 > div > div:last-child a {
+  display: inline-block;
+  width: 180px;
+  min-height: 44px;
+  padding: 0.75rem 0;
+  margin: 0;
+  border: 1.5px solid #000;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  line-height: 1.2;
+  transition: border-color 0.2s;
+}
+
+.columns.columns3 > div > div:last-child a:first-child {
+  /* Subtle yellow accent around the first button */
+  box-shadow: 0 0 0 2px #f3f376;
+}
+
+.columns.columns3 > div > div:last-child a:visited {
+  color: #000;
+}
+
+/* Heading and paragraph spacing for visual balance */
+.columns.columns3 h2 {
+  margin-bottom: 1.2rem;
+}
+
+.columns.columns3 p {
+  margin-top: 0.2em;
+  margin-bottom: 0;
+}
+
+/* Responsive: stack columns vertically under 900px */
+@media (width <= 900px) {
+  .columns.columns3 > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 2rem 0 0;
+    max-width: 100%;
+    min-height: unset;
+  }
+
+  .columns.columns3 > div > div:last-child {
+    align-items: flex-start;
+    margin-top: 2rem;
   }
 }
