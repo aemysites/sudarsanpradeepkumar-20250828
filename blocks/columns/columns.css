@@ -89,7 +89,6 @@
 
 
 .columns.columns3 > div {
-  /* Vertically center both columns, make block less wide and reduce gap */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -102,7 +101,6 @@
   box-sizing: border-box;
 }
 
-/* Left column: keep heading/description together and vertically centered */
 .columns.columns3 > div > div:first-child {
   flex: 1 1 0;
   min-width: 320px;
@@ -112,7 +110,6 @@
   justify-content: center;
 }
 
-/* Right column: vertically center button group, ensure consistent sizing */
 .columns.columns3 > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -122,7 +119,6 @@
   max-width: 240px;
 }
 
-/* Stack and space the buttons vertically */
 .columns.columns3 > div > div:last-child p {
   display: flex;
   flex-direction: column;
@@ -131,7 +127,6 @@
   margin: 0;
 }
 
-/* Button styles for links */
 .columns.columns3 > div > div:last-child a {
   display: inline-block;
   width: 180px;
@@ -152,7 +147,6 @@
 }
 
 .columns.columns3 > div > div:last-child a:first-child {
-  /* Subtle yellow accent around the first button */
   box-shadow: 0 0 0 2px #f3f376;
 }
 
@@ -160,7 +154,6 @@
   color: #000;
 }
 
-/* Heading and paragraph spacing for visual balance */
 .columns.columns3 h2 {
   margin-bottom: 1.2rem;
 }
@@ -170,7 +163,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive: stack columns vertically under 900px */
 @media (width <= 900px) {
   .columns.columns3 > div {
     flex-direction: column;
@@ -184,5 +176,163 @@
   .columns.columns3 > div > div:last-child {
     align-items: flex-start;
     margin-top: 2rem;
+  }
+}
+
+
+.columns.columns9 {
+  background: #000;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  padding: 0;
+}
+
+.columns.columns9 > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  align-items: start;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* FIRST COLUMN: Brand/Logo/Social Icons */
+.columns.columns9 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px; /* final tightness for icon/brand grouping */
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Brand/Logo horizontal row */
+.columns.columns9 > div > div:first-child > p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Logo sizing only if present */
+.columns.columns9 > div > div:first-child picture img {
+  width: 33px;
+  height: 33px;
+  display: block;
+}
+
+/* "Fashion Blog" text styling */
+.columns.columns9 > div > div:first-child .button,
+.columns.columns9 > div > div:first-child a.button {
+  background: none;
+  color: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  box-shadow: none;
+  display: inline-block;
+  min-width: 0;
+  max-width: 100%;
+  line-height: 1.1;
+}
+
+/* SOCIAL ICONS: horizontal row, only show <li> with icon <img> */
+.columns.columns9 > div > div:first-child ul {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.columns.columns9 > div > div:first-child ul li {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns9 > div > div:first-child ul li:nth-child(odd) {
+  display: list-item;
+}
+
+.columns.columns9 > div > div:first-child ul li img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+/* Remove bullets from all lists */
+.columns.columns9 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Columns 2-4: Headings & Links */
+.columns.columns9 > div > div:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Headings style */
+.columns.columns9 > div > div:not(:first-child) h2 {
+  color: #5c5c5c;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin: 0 0 1.2em;
+  line-height: 1.3;
+}
+
+/* List links style */
+.columns.columns9 > div > div:not(:first-child) ul {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns9 > div > div:not(:first-child) ul li {
+  margin: 0 0 0.6em;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns9 > div > div:not(:first-child) ul li a {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-block;
+}
+
+.columns.columns9 > div > div:not(:first-child) ul li a:hover {
+  color: #e2e2e2;
+  text-decoration: underline;
+}
+
+/* Responsive: stack columns vertically, adjust gap */
+@media (width <= 900px) {
+  .columns.columns9 > div {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .columns.columns9 > div > div {
+    margin-bottom: 24px;
+    align-items: flex-start;
   }
 }
